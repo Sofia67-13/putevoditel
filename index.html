@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путеводитель по Москве — 12 мест, карты и маршруты</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header>
+        <h1>🏛️ Путеводитель по Москве</h1>
+        <p>12 уникальных мест, карты, маршруты и генератор идей</p>
+    </header>
+    <nav>
+        <a href="#places">Достопримечательности</a>
+        <a href="#maps">Карты и маршруты</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+    <div class="container">
+        <div class="functions-bar">
+            <div class="function-card">
+                <h3>🎲 Генератор случайного места</h3>
+                <button id="randomPlaceBtn" class="btn">Показать</button>
+                <div id="randomPlaceResult" class="random-place-result"></div>
+            </div>
+            <div class="function-card">
+                <h3>🚶 Калькулятор времени (пешком)</h3>
+                <select id="routeFrom">
+                    <option value="Кремль">Московский Кремль</option>
+                    <option value="Парк Горького">Парк Горького</option>
+                    <option value="Третьяковка">Третьяковская галерея</option>
+                    <option value="ВДНХ">ВДНХ</option>
+                    <option value="Большой театр">Большой театр</option>
+                    <option value="Арбат">Старый Арбат</option>
+                </select>
+                <span>→</span>
+                <select id="routeTo">
+                    <option value="Парк Горького">Парк Горького</option>
+                    <option value="Кремль">Московский Кремль</option>
+                    <option value="Третьяковка">Третьяковская галерея</option>
+                    <option value="ВДНХ">ВДНХ</option>
+                    <option value="Большой театр">Большой театр</option>
+                    <option value="Арбат">Старый Арбат</option>
+                </select>
+                <button id="calcTimeBtn" class="btn">Рассчитать</button>
+                <div id="calcResult" class="random-place-result"></div>
+            </div>
+            <div class="function-card">
+                <h3>🎯 Генератор маршрута на выходные</h3>
+                <button id="generateItineraryBtn" class="btn">Сгенерировать</button>
+                <div id="itineraryResult" class="random-place-result"></div>
+            </div>
+        </div>
+
+        <h2 id="places" class="section-title">🏰 12 мест, которые стоит посетить</h2>
+        <div class="cards-grid">
+            <div class="card" data-name="Московский Кремль" data-time="10:00–18:00" data-price="от 500₽" data-desc="Древняя крепость, резиденция президента. Входит в список Всемирного наследия ЮНЕСКО. На территории — соборы, Оружейная палата, Царь-пушка и Царь-колокол." data-img="images/kremlin2.jpg">
+                <div class="card-image" style="background-image: url('images/kremlin.jpg');"></div>
+                <div class="card-content">
+                    <h3>Московский Кремль</h3>
+                    <div class="card-meta"><span>⏰ 10:00–18:00</span><span>💰 от 500₽</span></div>
+                    <p>Древняя крепость, сердце Москвы.</p>
+                    <a href="#map-kremlin" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Парк Горького" data-time="Круглосуточно" data-price="Бесплатно" data-desc="Центральный парк культуры и отдыха. Зимой — каток, летом — пляж, лекции, концерты, велопрокат и одна из лучших набережных Москвы." data-img="images/park-gorkogo.jpg">
+                <div class="card-image" style="background-image: url('images/park-gorkogo2.jpg');"></div>
+                <div class="card-content">
+                    <h3>Парк Горького</h3>
+                    <div class="card-meta"><span>⏰ Круглосуточно</span><span>💰 Бесплатно</span></div>
+                    <p>Любимое место отдыха москвичей.</p>
+                    <a href="#map-gorky" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Третьяковская галерея" data-time="10:00–21:00" data-price="от 600₽" data-desc="Главный музей русского национального искусства. Иконы Андрея Рублева, «Богатыри» Васнецова, «Девочка с персиками» Серова и тысячи других шедевров." data-img="images/tretyakov2.jpg">
+                <div class="card-image" style="background-image: url('images/tretyakov.jpg');"></div>
+                <div class="card-content">
+                    <h3>Третьяковская галерея</h3>
+                    <div class="card-meta"><span>⏰ 10:00–21:00</span><span>💰 от 600₽</span></div>
+                    <p>Крупнейший музей русского искусства.</p>
+                    <a href="#map-tretyakov" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="ВДНХ" data-time="09:00–22:00" data-price="Бесплатно" data-desc="Главная выставка страны. 70+ павильонов, фонтаны, музеи космонавтики и иллюзий, океанариум, аттракционы и знаменитый фонтан «Дружба народов»." data-img="images/vdnh2.jpg">
+                <div class="card-image" style="background-image: url('images/vdnh.jpg');"></div>
+                <div class="card-content">
+                    <h3>ВДНХ</h3>
+                    <div class="card-meta"><span>⏰ 09:00–22:00</span><span>💰 Бесплатно</span></div>
+                    <p>Выставочный комплекс и парк.</p>
+                    <a href="#map-vdnh" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Большой театр" data-time="11:00–20:00" data-price="от 1000₽" data-desc="Главный театр России. Легендарные балеты и оперы, великолепная акустика и архитектура. Мечта многих любителей искусства со всего мира." data-img="images/bolshoy-teatr1.jpg">
+                <div class="card-image" style="background-image: url('images/bolshoy-teatr2.jpg');"></div>
+                <div class="card-content">
+                    <h3>Большой театр</h3>
+                    <div class="card-meta"><span>⏰ 11:00–20:00</span><span>💰 от 1000₽</span></div>
+                    <p>Символ русской культуры.</p>
+                    <a href="#map-bolshoi" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Старый Арбат" data-time="Круглосуточно" data-price="Бесплатно" data-desc="Пешеходная улица с историей. Уличные музыканты, художники, сувенирные лавки, дом-музей Пушкина и стена памяти Виктора Цоя." data-img="images/arbat2.jpg">
+                <div class="card-image" style="background-image: url('images/arbat.jpg');"></div>
+                <div class="card-content">
+                    <h3>Старый Арбат</h3>
+                    <div class="card-meta"><span>⏰ Круглосуточно</span><span>💰 Бесплатно</span></div>
+                    <p>Знаменитая пешеходная улица.</p>
+                    <a href="#map-arbat" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Музей советских игровых автоматов" data-time="11:00–21:00" data-price="от 450₽" data-desc="Более 60 рабочих автоматов из СССР: «Морской бой», «Баскетбол», «Магистраль». Можно поиграть и выпить лимонада за 15 копеек." data-img="images/museum-automatov2.jpg">
+                <div class="card-image" style="background-image: url('images/museum-automatov.jpg');"></div>
+                <div class="card-content">
+                    <h3>Музей советских игровых автоматов</h3>
+                    <div class="card-meta"><span>⏰ 11:00–21:00</span><span>💰 от 450₽</span></div>
+                    <p>Ностальгия и живые игры из детства.</p>
+                    <a href="#map-museum" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Крыши высотки на Котельнической" data-time="По записи" data-price="от 800₽" data-desc="Одна из сталинских высоток с панорамным видом на Москву-реку и Кремль. Экскурсия с историей дома и легендарных жильцах." data-img="images/vysotka2.jpg">
+                <div class="card-image" style="background-image: url('images/vysotka.jpg');"></div>
+                <div class="card-content">
+                    <h3>Крыши высотки на Котельнической</h3>
+                    <div class="card-meta"><span>⏰ По записи</span><span>💰 от 800₽</span></div>
+                    <p>Секретные крыши и невероятные виды.</p>
+                    <a href="#map-kotelnicheskaya" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Бункер-42 на Таганке" data-time="10:00–20:00" data-price="от 1000₽" data-desc="Секретный военный бункер времен Холодной войны на глубине 65 метров. Тоннели, командный пункт, музей ядерного вооружения и квесты." data-img="images/bunker.jpg">
+                <div class="card-image" style="background-image: url('images/bunker2.jpg');"></div>
+                <div class="card-content">
+                    <h3>Бункер-42 на Таганке</h3>
+                    <div class="card-meta"><span>⏰ 10:00–20:00</span><span>💰 от 1000₽</span></div>
+                    <p>Подземный бункер времен Холодной войны.</p>
+                    <a href="#map-bunker" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Усадьба Коломенское" data-time="09:00–21:00" data-price="Бесплатно" data-desc="Бывшая царская резиденция, парк-музей под открытым небом. Дворец Алексея Михайловича, церковь Вознесения (ЮНЕСКО) и старые дубы." data-img="images/kolomenskoe2.jpg">
+                <div class="card-image" style="background-image: url('images/kolomenskoe.jpg');"></div>
+                <div class="card-content">
+                    <h3>Усадьба Коломенское</h3>
+                    <div class="card-meta"><span>⏰ 09:00–21:00</span><span>💰 Бесплатно (парк)</span></div>
+                    <p>Древняя резиденция русских царей.</p>
+                    <a href="#map-kolomenskoe" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Фабрика мороженого «Чистая линия»" data-time="10:00–19:00" data-price="от 700₽" data-desc="Экскурсия на производство с дегустацией. Узнаешь, как делают настоящее мороженое, и съешь сколько захочешь." data-img="images/icecream2.jpg">
+                <div class="card-image" style="background-image: url('images/icecream.jpg');"></div>
+                <div class="card-content">
+                    <h3>Фабрика мороженого «Чистая линия»</h3>
+                    <div class="card-meta"><span>⏰ 10:00–19:00</span><span>💰 от 700₽</span></div>
+                    <p>Экскурсия и дегустация</p>
+                    <a href="#map-icecream" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+            <div class="card" data-name="Музей криптографии" data-time="11:00–21:00" data-price="от 600₽" data-desc="Новый музей про шифры, коды и цифровую безопасность. Интерактивные экспонаты, взлом шифров и история связи." data-img="images/crypto2.jpg">
+                <div class="card-image" style="background-image: url('images/crypto.jpg');"></div>
+                <div class="card-content">
+                    <h3>Музей криптографии</h3>
+                    <div class="card-meta"><span>⏰ 11:00–21:00</span><span>💰 от 600₽</span></div>
+                    <p>Шифры, тайны и цифровая безопасность.</p>
+                    <a href="#map-crypto" class="btn">Смотреть на карте</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="placeModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <div id="modalImage" style="height: 180px; background-size: cover; background-position: center; border-radius: 12px; margin: 15px 0;"></div>
+                <p><strong>⏰ Часы работы:</strong> <span id="modalTime"></span></p>
+                <p><strong>💰 Стоимость:</strong> <span id="modalPrice"></span></p>
+                <p id="modalDesc"></p>
+            </div>
+        </div>
+
+        <h2 id="maps" class="section-title">🗺️ Карты и маршруты</h2>
+        <div class="maps-section">
+            <h3 id="map-kremlin">📍 Московский Кремль</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.618713,55.751705&z=16&pt=37.618713,55.751705,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Александровский сад, Боровицкая.</div>
+
+            <h3 id="map-gorky">🌳 Парк Горького</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.600951,55.729242&z=16&pt=37.600951,55.729242,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Парк культуры, Октябрьская.</div>
+
+            <h3 id="map-tretyakov">🖼️ Третьяковская галерея</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.620278,55.741111&z=17&pt=37.620278,55.741111,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Третьяковская, Новокузнецкая.</div>
+
+            <h3 id="map-vdnh">🏛️ ВДНХ</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.640000,55.822000&z=15&pt=37.640000,55.822000,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: ВДНХ, Ботанический сад.</div>
+
+            <h3 id="map-bolshoi">🎭 Большой театр</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.618664,55.760399&z=17&pt=37.618664,55.760399,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Театральная, Охотный ряд.</div>
+
+            <h3 id="map-arbat">🚶 Старый Арбат</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.591512,55.749491&z=16&pt=37.591512,55.749491,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Арбатская, Смоленская.</div>
+
+            <h3 id="map-museum">🎮 Музей игровых автоматов</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.624130,55.763954&z=17&pt=37.624130,55.763954,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Курская, Чкаловская.</div>
+
+            <h3 id="map-kotelnicheskaya">🏗️ Высотка на Котельнической</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.642787,55.747083&z=17&pt=37.642787,55.747083,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Таганская, Китай-город.</div>
+
+            <h3 id="map-bunker">🛡️ Бункер-42</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.649256,55.741754&z=17&pt=37.649256,55.741754,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Таганская, Марксистская.</div>
+
+            <h3 id="map-kolomenskoe">🏞️ Усадьба Коломенское</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.670535,55.674093&z=15&pt=37.670535,55.674093,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Коломенская, Каширская.</div>
+
+            <h3 id="map-icecream">🍦 Фабрика мороженого</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.529142,55.944031&z=14&pt=37.529142,55.944031,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">📍 ул. Примерная, 5. Рекомендуем бронировать заранее.</div>
+
+            <h3 id="map-crypto">🔐 Музей криптографии</h3>
+            <div class="map-container"><iframe src="https://yandex.ru/map-widget/v1/?ll=37.597678,55.830677&z=15&pt=37.597678,55.830677,flag&l=map" allowfullscreen></iframe></div>
+            <div class="route-info">🚇 Метро: Цветной бульвар, Трубная.</div>
+
+            <div class="route-builder">
+    <h3>🔧 Построить маршрут между любыми двумя точками</h3>
+    <select id="startPoint">
+        <option value="55.751705, 37.618713">Московский Кремль</option>
+        <option value="55.729242,37.600951">Парк Горького</option>
+        <option value="55.741111,37.620278">Третьяковская галерея</option>
+        <option value="55.822000,37.640000">ВДНХ</option>
+        <option value="55.760399,37.618664">Большой театр</option>
+        <option value="55.749491,37.591512">Старый Арбат</option>
+        <option value="55.763954,37.624130">Музей игровых автоматов</option>
+        <option value="55.747083,37.642787">Высотка на Котельнической</option>
+        <option value="55.741754,37.649256">Бункер-42 на Таганке</option>
+        <option value="55.674093,37.670535">Усадьба Коломенское</option>
+        <option value="55.944031,37.529142">Фабрика мороженого «Чистая линия»</option>
+        <option value="55.830677,37.597678">Музей криптографии</option>
+    </select>
+    <span> → </span>
+    <select id="endPoint">
+        <option value="55.729242,37.600951">Парк Горького</option>
+        <option value="55.751705, 37.618713">Московский Кремль</option>
+        <option value="55.741111,37.620278">Третьяковская галерея</option>
+        <option value="55.822000,37.640000">ВДНХ</option>
+        <option value="55.760399,37.618664">Большой театр</option>
+        <option value="55.749491,37.591512">Старый Арбат</option>
+        <option value="55.763954,37.624130">Музей игровых автоматов</option>
+        <option value="55.747083,37.642787">Высотка на Котельнической</option>
+        <option value="55.741754,37.649256">Бункер-42 на Таганке</option>
+        <option value="55.674093,37.670535">Усадьба Коломенское</option>
+        <option value="55.944031,37.529142">Фабрика мороженого «Чистая линия»</option>
+        <option value="55.830677,37.597678">Музей криптографии</option>
+    </select>
+    <button id="buildRouteBtn" class="btn">Открыть маршрут в Яндекс.Картах</button>
+    <p style="margin-top: 10px; font-size: 0.9rem;">* Откроется новая вкладка</p>
+</div>
+
+        <h2 id="reviews" class="section-title">💬 Отзывы</h2>
+        <div class="reviews-section">
+            <div class="review-form">
+                <input type="text" id="reviewName" placeholder="Ваше имя">
+                <textarea id="reviewText" rows="3" placeholder="Поделитесь впечатлениями..."></textarea>
+                <button id="addReviewBtn" class="btn">Добавить отзыв</button>
+            </div>
+            <div id="reviewsList" class="review-list"></div>
+        </div>
+
+        <h2 id="contact" class="section-title">📞 Контакты</h2>
+        <div class="contact-section">
+            <p>📧 Email: guide@moscow.ru</p>
+            <p>📱 Телефон: +7 (999) 123-45-67</p>
+            <div class="social-links"><a href="#">ВКонтакте</a> | <a href="#">Telegram</a></div>
+        </div>
+    </div>
+    <footer><p>© 2025 Путеводитель по Москве. 12 интересных мест.</p></footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
